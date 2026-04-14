@@ -1,0 +1,65 @@
+# Пример конфигурации Git для миграции
+# Сохраните этот файл как ~/.gitconfig или .git/config в репозитории
+
+[user]
+    # Укажите ваше имя и email
+    name = Иван Иванов
+    email = ivan.ivanov@example.com
+
+[core]
+    # Используйте LF для переносов строк (рекомендуется для кроссплатформенных проектов)
+    autocrlf = input
+    # Кодировка файлов
+    safecrlf = warn
+
+[credential]
+    # Кэширование учетных данных на 1 час
+    helper = cache --timeout=3600
+    # Альтернатива для macOS
+    # helper = osxkeychain
+    # Альтернатива для Windows
+    # helper = wincred
+
+[pull]
+    # Стратегия pull (false для merge, true для rebase)
+    rebase = false
+
+[push]
+    # Стратегия push по умолчанию
+    default = simple
+    # Автоматически устанавливать upstream для новых веток
+    autoSetupRemote = true
+
+[merge]
+    # Инструмент для разрешения конфликтов
+    tool = vimdiff
+    # Сохранять конфликты в отдельные файлы
+    conflictstyle = diff3
+
+[alias]
+    # Полезные алиасы для миграции
+    lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    stats = log --oneline --numstat --shortstat
+    branches = branch -a
+    tags = tag -l
+    remotes = remote -v
+    cleanup = "!git fetch --prune && git branch --merged | grep -v '\\*\\|main\\|master\\|develop' | xargs -n 1 git branch -d"
+
+[color]
+    # Цветовой вывод
+    ui = auto
+    branch = auto
+    diff = auto
+    status = auto
+
+# Настройки для SourceCraft
+[url "https://git@git.sourcecraft.dev/"]
+    insteadOf = sc:
+    
+# Настройки для GitHub
+[url "https://github.com/"]
+    insteadOf = gh:
+
+# Пример использования:
+# git clone sc:организация/репозиторий.git
+# git push gh:пользователь/репозиторий.git

@@ -1,0 +1,47 @@
+# Игнорируемые файлы и папки для проекта миграции
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Логи и временные файлы
+*.log
+*.tmp
+*.temp
+
+# Файлы IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Зависимости
+node_modules/
+vendor/
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Скомпилированные файлы
+dist/
+build/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Документация в бинарном формате
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+
+# Файлы операционных систем
+*.orig
+*.rej
