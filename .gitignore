@@ -44,4 +44,7 @@ build/
 
 # Файлы операционных систем
 *.orig
-*.rej
+*.rej-e 
+# AI platform artifacts
+Caddyfile
+worklog.md
